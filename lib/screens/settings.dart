@@ -1,4 +1,4 @@
-import 'package:earthquakeapp/earthquake_list.dart';
+import 'package:earthquakeapp/screens/earthquake_list.dart';
 import 'package:flutter/material.dart';
 
 class Settings extends StatefulWidget {
