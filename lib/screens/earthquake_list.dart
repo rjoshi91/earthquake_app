@@ -114,7 +114,8 @@ class _EarthquakeListScreenState extends State<EarthquakeListScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => EarthquakeWebView(
-                            earthquakeList[index]["properties"]["url"]),
+                            earthquakeList[index]["properties"]["url"]
+                                .toString()),
                       ),
                     );
                   },
@@ -148,15 +149,22 @@ class _EarthquakeListScreenState extends State<EarthquakeListScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Text(
-                                  earthquakeList[index]["properties"]["place"],
+                                  earthquakeList[index]["properties"]["place"]
+                                          .toString()
+                                          .split(" of")
+                                          .first +
+                                      " of",
                                   style: new TextStyle(
-                                      fontSize: 10, color: Colors.grey),
+                                      fontSize: 13, color: Colors.grey),
                                 ),
                                 SizedBox(
                                   height: 5,
                                 ),
                                 Text(
-                                  earthquakeList[index]["properties"]["place"],
+                                  earthquakeList[index]["properties"]["place"]
+                                      .toString()
+                                      .split("of ")
+                                      .last,
                                   style: new TextStyle(
                                       fontWeight: FontWeight.bold,
                                       fontSize: 15,
@@ -184,10 +192,10 @@ class _EarthquakeListScreenState extends State<EarthquakeListScreen> {
                                   height: 5,
                                 ),
                                 Text(
-                                  "4:57 PM" + " " + "IST",
+                                  "4:57 PM" + " " + "UTC",
                                   style: new TextStyle(
                                       fontWeight: FontWeight.normal,
-                                      fontSize: 15,
+                                      fontSize: 13,
                                       color: Colors.black),
                                 ),
                               ],

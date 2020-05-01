@@ -1,21 +1,11 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-// ignore: must_be_immutable
-class EarthquakeWebView extends StatefulWidget {
+class EarthquakeWebView extends StatelessWidget {
   final String url;
+  EarthquakeWebView(this.url);
 
-  EarthquakeWebView(earthquakeList, {this.url});
-
-  @override
-  _EarthquakeWebViewState createState() => _EarthquakeWebViewState();
-}
-
-class _EarthquakeWebViewState extends State<EarthquakeWebView> {
-  Completer<EarthquakeWebView> _completer = Completer<EarthquakeWebView>();
-
+//  Completer<EarthquakeWebView> _completer = Completer<EarthquakeWebView>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,11 +27,8 @@ class _EarthquakeWebViewState extends State<EarthquakeWebView> {
         backgroundColor: Colors.indigo[900],
       ),
       body: WebView(
-        initialUrl: widget.url,
+        initialUrl: url,
         javascriptMode: JavascriptMode.unrestricted,
-//        onWebViewCreated: (WebViewController controller) {
-//          _completer.complete(controller);
-//        },
       ),
     );
   }
